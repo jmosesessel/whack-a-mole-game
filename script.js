@@ -1,6 +1,8 @@
 let initialTimerSecs = 10;
 let initialScore = 0;
 let selectedHole = 0;
+let countDownTimer;
+
 // add event to the start button
 const startBtn = document
 	.querySelector(".start-game button")
@@ -16,7 +18,6 @@ const startBtn = document
         chooseRandomHole(1,6)
 	});
 
-let countDownTimer;
 const countDown = (seconds) => {
 	clearInterval(countDownTimer);
 
@@ -31,20 +32,6 @@ const countDown = (seconds) => {
 		}
 	}, 1000);
 };
-
-const resetAll = () => {
-	//reset timer
-	displayCountDown(initialTimerSecs);
-
-    //hide moles
-    hideMoles()
-	// reset score
-    initialScore = 0;
-	displayScore(initialScore);
-
-};
-
-
 
 // display countDown
 const displayCountDown = (timeLeft) => {
@@ -105,3 +92,15 @@ const chooseRandomHole = (min,max)=>{
     showMole(selectedHole)
     console.log('random hole', hole)
 }
+
+const resetAll = () => {
+	//reset timer
+	displayCountDown(initialTimerSecs);
+
+    //hide moles
+    hideMoles()
+	// reset score
+    initialScore = 0;
+	displayScore(initialScore);
+
+};
